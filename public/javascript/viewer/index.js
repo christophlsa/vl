@@ -5,7 +5,7 @@ function numberLines(text) {
 	var lines = text.split("\n");
 	var tag = $("<div>").addClass("line-numbers");
 	$.each(lines, function(idx, line) {
-		tag.append($("<div>")
+		tag.append($("<div>").addClass("lines")
 			.append($("<span>").addClass("number").text(idx+1))
 			.append($("<span>").addClass("line").html(line || "&nbsp;")) );
 	});

@@ -82,7 +82,7 @@ body
 .content-motion.motion-text
 	{border:0.1em dotted darkgray; padding:0.2em;}
 .content-motion.motion-argumentation
-	{margin-top:0.3em;}
+	{margin-top:1em;}
 .ballot-maxvotes
 	{text-align:right;}
 .ballot-status *
@@ -110,6 +110,8 @@ body
 #options-button
 	{background-position:-432px 0px;}
 
+.line-numbers .lines
+  {clear: left;}
 .line-numbers .number
 	{display:block; color: teal; font: 90% monospace; width:1.5em; text-align:right; margin-right:0.5em; float:left;}
 .line-numbers .line
