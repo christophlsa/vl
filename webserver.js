@@ -14,6 +14,9 @@ exports.createServer = function () {
 
 	global.backend = require('./backend');
 	global.io = socket.listen(app);
+	
+	// TODO: move to the right position
+	var RedisStore = require('connect-redis')(express);
 
 	// Configuration
 
@@ -24,7 +27,8 @@ exports.createServer = function () {
 		app.use(express.bodyParser());
 		app.use(express.methodOverride());
 		app.use(express.cookieParser());
-		app.use(express.session({ secret: "UsMohsaEkB14iwuterECSv29HEbJ407h" }));
+		// TODO: move to the right position - use a general way with the given backend
+		app.use(express.session({ store: new RedisStore({ client: global.db }), secret: 'UsMohsaEkB14iwuterECSv29HEbJ407h' }));
 		app.use(app.router);
 		app.use(express.static(__dirname + '/public', { maxAge: 24*60*60*1000 }));
 	});
