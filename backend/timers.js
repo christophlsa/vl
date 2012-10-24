@@ -4,6 +4,8 @@ var FlatStructure = require('./structure/flat.js');
 
 module.exports = new FlatStructure({
 	sanitize : function (item) {
+		if (!item) return null;
+
 		var now = new Date();
 		if (item.running == "true") {
 			item.current = Math.max(0, item.startedValue - (now.getTime() - new Date(item.started).getTime()) / 1000);
